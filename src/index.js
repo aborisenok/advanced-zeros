@@ -1,12 +1,12 @@
 module.exports = function getZerosCount(number, base) {
-  var result = 0;
-  var primes = findPrimeFactors(base);
-  var primeKeys = Object.keys(primes);
+  let result = 0;
+  const primes = findPrimeFactors(base);
+  const primeKeys = Object.keys(primes);
 
   for(let i = 0; i < primeKeys.length; i++){
-    var diver = primeKeys[i];
-    var degree =  primes[primeKeys[i]];
-    var tempRes = 0;
+    let diver = primeKeys[i];
+    const degree =  primes[primeKeys[i]];
+    let tempRes = 0;
 
     while(diver < number){
       tempRes += Math.floor(number/diver);
@@ -29,7 +29,7 @@ module.exports = function getZerosCount(number, base) {
 
 
 function findPrimeFactors(number){
-  var arrOfPrime = [];
+  let arrOfPrime = [];
   for(let i = 2; i <= number; i++){
     while(number % i === 0){
       arrOfPrime.push(i);
@@ -37,13 +37,13 @@ function findPrimeFactors(number){
     }
   }
 
-  var res = findNumberOfMax(arrOfPrime);
+  const res = countNumberOfPrime(arrOfPrime);
   
   return res;
 }
 
-function findNumberOfMax(array){
-  var map = {};
+function countNumberOfPrime(array){
+  let map = {};
 
   for(let i = 0; i < array.length; i++){
     if(map[array[i]]){
